@@ -1,0 +1,102 @@
+body {
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+    width: 100% !important;
+    margin: 0;
+    max-width: 1920px;
+}
+
+.sidebar {
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 30%;
+    max-width: 330px !important;
+}
+
+.sidebar .heading {
+    text-align: center;
+    font-size: 40px;
+}
+
+.block-heading {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.textures {
+    margin: 0 auto 20px;
+    border: 1px solid black;
+    padding: 5px;
+    max-width: 222px;
+}
+
+.texture {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.brushes {
+    margin: 0 auto 20px;
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 222px;
+}
+
+.brush_wrapper {
+    display: block;
+    width: calc(100% - 2px);
+    border: 1px solid black;
+    margin-bottom: 5px;
+    height: 20px;
+    outline: none;
+    position: relative;
+    line-height: 20px;
+}
+
+.brush {
+    background: black;
+    content: '';
+    margin: auto 5px;
+    width: calc(100% - 10px);
+    line-height: normal;
+    display: inline-block;
+    vertical-align: middle;
+    height: 5px;
+}
+
+.brush:last-child {
+    margin-bottom: 0;
+}
+
+.actions {
+    margin: 0 auto 20px;
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 222px;
+}
+
+.action-button {
+    width: 100%;
+    border-radius: 0 !important;
+    margin-bottom: 10px;
+}
+
+.action-button:last-child {
+    margin-bottom: 0;
+}
+
+.drew-area {
+    margin: 0;
+    width: 70%;
+}
+
+canvas {
+    width: 100%;
+    height: 100vh;
+}

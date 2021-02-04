@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="skeleton.css"><link>
+    <link rel="stylesheet" href="normalize.css"><link>
+    <link rel="stylesheet" href="style.css"><link>
+
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="three columns sidebar">
+                <h1 class="heading">AKG Paint</h1>
+
+                <h5 class="block-heading">Select a texture</h5>
+                <div class="textures">
+                    <div>
+                        <div class="texture">
+                            <img src="textures/2.png" width="40" height="40" alt="texture"/>
+                        </div>
+                        <div class="texture">
+                            <img src="textures/1.png" width="40" height="40" alt="texture"/>
+                        </div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                    </div>
+
+                    <div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                    </div>
+
+                    <div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                        <div class="texture"></div>
+                    </div>
+
+                </div>
+
+                <h5 class="block-heading">Select a brush</h5>
+                <div class="brushes">
+                    <div class="brush_wrapper">
+                        <div class="brush" style="height: 1px"></div>
+                    </div>
+
+                    <div class="brush_wrapper">
+                        <div class="brush" style="height: 2px"></div>
+                    </div>
+
+                    <div class="brush_wrapper">
+                        <div class="brush" style="height: 3px"></div>
+                    </div>
+
+                    <div class="brush_wrapper">
+                        <div class="brush" style="height: 4px"></div>
+                    </div>
+
+                    <div class="brush_wrapper">
+                        <div class="brush" style="height: 5px"></div>
+                    </div>
+                </div>
+
+                <h5 class="block-heading">Actions</h5>
+                <div class="actions">
+                    <input class="action-button" type="button" value="Clear" id="clear">
+                    <input class="button-primary action-button" type="button" value="Save" id="save">
+                </div>
+
+            </div>
+
+            <div class="nine columns drew-area">
+                <canvas id="paint-canvas" width="1590" height="1080"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
