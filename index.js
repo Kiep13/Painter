@@ -21,15 +21,14 @@ window.onload = function () {
   for(let i = 0; i < textures.length; i++) {
     textures[i].addEventListener('click', function(event) {
       //context.strokeStyle = event.target.value || 'black';
-      const img = textures[i].childNodes[0];
-      console.log(textures[i], textures[i].childNodes[0]);
-      //selectedTexture = img.src.slice(img.src.lastIndexOf('/') + 1);
+      const img = textures[i].getElementsByTagName('img')[0];
+      console.log(img.src);
+      selectedTexture = img.src.slice(img.src.lastIndexOf('/') + 1);
     });
   }
 
   // Handle Brushes
   const brushes = document.getElementsByClassName('brush_wrapper');
-  console.log(brushes);
 
   for(let i = 0; i <brushes.length; i++) {
     brushes[i].addEventListener('click', function() {
@@ -55,11 +54,9 @@ window.onload = function () {
 
       const img = new Image();
       img.src = "textures/" + selectedTexture;
-      //img.width = context.lineWidth * 10;
-      //img.height = context.lineWidth * 10;
 
       console.log(img.width, img.height, context.lineWidth);
-      context.drawImage(img, mouseX, mouseY, context.lineWidth * 10, context.lineWidth * 10);
+      context.drawImage(img, mouseX, mouseY, context.lineWidth * 15, context.lineWidth * 15);
       //context.lineTo(mouseX, mouseY);
       context.stroke();
     }
