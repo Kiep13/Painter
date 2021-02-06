@@ -14,6 +14,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     width: 30%;
     max-width: 330px !important;
+    position: relative;
 }
 
 .sidebar .heading {
@@ -46,6 +47,11 @@ body {
     height: 40px;
 }
 
+.texture.active {
+    border: 1px solid #33C3F0;
+    background: #33C3F0;
+}
+
 .brushes {
     margin: 0 auto 20px;
     border: 1px solid black;
@@ -62,6 +68,11 @@ body {
     outline: none;
     position: relative;
     line-height: 20px;
+}
+
+.brush_wrapper.active {
+    border: 1px solid #33C3F0;
+    background: #33C3F0;
 }
 
 .brush {
@@ -105,4 +116,11 @@ canvas {
     max-width: 1590px;
     width: 1570px;
     height: 99vh;
+}
+
+.footer-block {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    bottom: 0;
 }
