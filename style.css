@@ -3,7 +3,7 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
-.container {
+.root {
     width: 100% !important;
     margin: 0;
     max-width: 1920px;
@@ -12,9 +12,9 @@ body {
 .sidebar {
     height: 100vh;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    width: 30%;
-    max-width: 330px !important;
+    width: 330px;
     position: relative;
+    display: inline-block;
 }
 
 .sidebar .heading {
@@ -109,13 +109,15 @@ body {
 
 .drew-area {
     margin: 0;
-    width: 70%;
+    width: 1590px;
+    height: 100vh;
+    display: inline-block;
+    position: absolute;
 }
 
 canvas {
-    max-width: 1590px;
-    width: 1570px;
-    height: 99vh;
+    width: 1590px;
+    height: 960px;
 }
 
 .footer-block {
