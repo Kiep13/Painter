@@ -3,12 +3,13 @@ window.onload = function () {
   const canvas = document.getElementById("paint-canvas");
   const context = canvas.getContext("2d");
   const boundings = canvas.getBoundingClientRect();
-  console.log(boundings);
 
   let selectedTexture = '1.png';
   let mouseX = 0;
   let mouseY = 0;
-  context.lineWidth = 1; // initial brush width
+  let scale = 1.0;
+  let effectNumber = 0;
+  context.lineWidth = 1;
 
   let isDrawing = false;
 
@@ -27,6 +28,7 @@ window.onload = function () {
     });
   }
 
+
   const brushes = document.getElementsByClassName('brush_wrapper');
 
   for(let i = 0; i <brushes.length; i++) {
@@ -41,6 +43,20 @@ window.onload = function () {
   }
 
 
+  const effects = document.getElementsByClassName('effect');
+
+  for(let i = 0; i <effects.length; i++) {
+    effects[i].addEventListener('click', function() {
+      effectNumber = i;
+
+      for(let j = 0; j < effects.length; j++) {
+        effects[j].classList.remove('active');
+      }
+      effects[i].classList.add('active');
+    });
+  }
+
+
   canvas.addEventListener('mousedown', function(event) {
     setMouseCoordinates(event);
     isDrawing = true;
@@ -48,6 +64,7 @@ window.onload = function () {
     context.beginPath();
     context.moveTo(mouseX, mouseY);
   });
+
 
   canvas.addEventListener('mousemove', function(event) {
     setMouseCoordinates(event);
@@ -57,7 +74,6 @@ window.onload = function () {
       const img = new Image();
       img.src = "textures/" + selectedTexture;
 
-      console.log(img.width, img.height, context.lineWidth);
       context.drawImage(img, mouseX, mouseY, context.lineWidth * 15, context.lineWidth * 15);
       context.stroke();
     }
@@ -68,6 +84,85 @@ window.onload = function () {
     setMouseCoordinates(event);
     isDrawing = false;
   });
+
+
+  canvas.addEventListener('dblclick', function (event) {
+    setMouseCoordinates(event);
+
+    switch(effectNumber) {
+      case 1: drawSquare(); break;
+      case 2: drawExplosion(); break;
+      case 3: drawSpiral(); break;
+      default: return;
+    }
+
+  });
+
+
+  function drawSquare() {
+    for (let step = 10; step < 210; step += 20) {
+
+      for (let x = mouseX - step; x <= mouseX + step; x += 7) {
+        let y1 = mouseY - step;
+        let y2 = mouseY + step;
+        drawSecondEffect(x, y1, 1 + step / 30, 1 + step / 30);
+        drawSecondEffect(x, y2, 1 + step / 30, 1 + step / 30);
+      }
+
+      for (let y = mouseY - step; y <= mouseY + step; y += 7) {
+        let x1 = mouseX - step;
+        let x2 = mouseX + step;
+        drawSecondEffect(x1, y, 1 + step / 30, 1 + step / 30);
+        drawSecondEffect(x2, y, 1 + step / 30, 1 + step / 30);
+      }
+    }
+  }
+
+
+  function drawExplosion() {
+    for (let a = 0; a < Math.PI * 2 + 0.01; a += Math.PI / 4) {
+
+      for (let r = 1.0; r < 628; r *= 1.05) {
+        let x = mouseX + r * Math.sin(a);
+        let y = mouseY + r * Math.cos(a);
+
+        let rr = 5 + (Math.sin(r / 20) + 1) * 20;
+
+        drawSecondEffect(x, y, rr, rr);
+      }
+    }
+  }
+
+
+  function drawSpiral() {
+    let r = 5;
+
+    for (let a = 0; a < 100; a += 0.1) {
+      r *= 1.01;
+      let x = mouseX + r * Math.sin(a);
+      let y = mouseY + r * Math.cos(a);
+      drawSecondEffect(x, y, r / 5, r / 5);
+    }
+  }
+
+
+  function drawFirstEffect(x, y, w, h) {
+    let rw = w * scale;
+    let rh = h * scale;
+
+    const img = new Image();
+    img.src = "textures/" + selectedTexture;
+
+    context.drawImage(img, x - rw / 2, y - rh / 2, rw, rh);
+    scale *= 1.01;
+  }
+
+
+  function drawSecondEffect(x, y, w, h) {
+    const img = new Image();
+    img.src = "textures/" + selectedTexture;
+    context.drawImage(img, x - w / 2, y - h / 2, w, h);
+  }
 
 
   function setMouseCoordinates(event) {

@@ -90,6 +90,32 @@ body {
     margin-bottom: 0;
 }
 
+.effects {
+    margin: 0 auto 20px;
+    border: 1px solid black;
+    padding: 5px;
+    max-width: 222px;
+}
+
+.effect {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+}
+
+.effect span {
+    vertical-align: baseline;
+}
+
+.effect.active {
+    border: 1px solid #33C3F0;
+    background: #33C3F0;
+}
+
 .actions {
     margin: 0 auto 20px;
     border: 1px solid black;
