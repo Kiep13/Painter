@@ -67,15 +67,7 @@ function setMouseCoordinates(event) {
   mouseY = event.clientY - boundings.top;
 }
 
-function drawFirstEffect(x, y, w, h) {
-  let rw = w * scale;
-  let rh = h * scale
-
-  context.drawImage(image, x - rw / 2, y - rh / 2, rw, rh);
-  scale *= 1.01;
-}
-
-function drawSecondEffect(x, y, w, h) {
+function drawImage(x, y, w, h) {
   context.drawImage(image, x - w / 2, y - h / 2, w, h);
 }
 
@@ -85,15 +77,15 @@ function drawSquare() {
     for (let x = mouseX - step; x <= mouseX + step; x += 7) {
       let y1 = mouseY - step;
       let y2 = mouseY + step;
-      drawSecondEffect(x, y1, 1 + step / 30, 1 + step / 30);
-      drawSecondEffect(x, y2, 1 + step / 30, 1 + step / 30);
+      drawImage(x, y1, 1 + step / 30, 1 + step / 30);
+      drawImage(x, y2, 1 + step / 30, 1 + step / 30);
     }
 
     for (let y = mouseY - step; y <= mouseY + step; y += 7) {
       let x1 = mouseX - step;
       let x2 = mouseX + step;
-      drawSecondEffect(x1, y, 1 + step / 30, 1 + step / 30);
-      drawSecondEffect(x2, y, 1 + step / 30, 1 + step / 30);
+      drawImage(x1, y, 1 + step / 30, 1 + step / 30);
+      drawImage(x2, y, 1 + step / 30, 1 + step / 30);
     }
   }
 }
@@ -107,7 +99,7 @@ function drawExplosion() {
 
       let rr = 5 + (Math.sin(r / 20) + 1) * 20;
 
-      drawSecondEffect(x, y, rr, rr);
+      drawImage(x, y, rr, rr);
     }
   }
 }
@@ -119,7 +111,7 @@ function drawSpiral() {
     r *= 1.01;
     let x = mouseX + r * Math.sin(a);
     let y = mouseY + r * Math.cos(a);
-    drawSecondEffect(x, y, r / 5, r / 5);
+    drawImage(x, y, r / 5, r / 5);
   }
 }
 
@@ -157,7 +149,7 @@ function selectEffect(value) {
   document.getElementById(`effect${value}`).classList.add('active');
 }
 
-function clear() {
+function clearCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
