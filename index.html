@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Painter</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
@@ -25,71 +25,70 @@
         <h5 class="block-heading">Select a texture</h5>
         <div class="textures">
             <div>
-                <div class="texture active">
+                <div class="texture active" id="texture1" onclick="selectTexture(1)">
                     <img src="textures/1.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture2" onclick="selectTexture(2)">
                     <img src="textures/2.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture3" onclick="selectTexture(3)">
                     <img src="textures/3.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture4" onclick="selectTexture(4)">
                     <img src="textures/4.png" alt="texture"/>
                 </div>
             </div>
 
             <div>
-                <div class="texture">
+                <div class="texture" id="texture5" onclick="selectTexture(5)">
                     <img src="textures/5.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture6" onclick="selectTexture(6)">
                     <img src="textures/6.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture7" onclick="selectTexture(7)">
                     <img src="textures/7.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture8" onclick="selectTexture(8)">
                     <img src="textures/8.png" alt="texture"/>
                 </div>
             </div>
 
             <div>
-                <div class="texture">
+                <div class="texture" id="texture9" onclick="selectTexture(9)">
                     <img src="textures/9.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture10" onclick="selectTexture(10)">
                     <img src="textures/10.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture11" onclick="selectTexture(11)">
                     <img src="textures/11.png" alt="texture"/>
                 </div>
-                <div class="texture">
+                <div class="texture" id="texture12" onclick="selectTexture(12)">
                     <img src="textures/12.png" alt="texture"/>
                 </div>
             </div>
-
         </div>
 
         <h5 class="block-heading">Select a brush</h5>
         <div class="brushes">
-            <div class="brush_wrapper active">
+            <div class="brush_wrapper active" id="brush1" onclick="selectBrush(1)">
                 <div class="brush" style="height: 1px"></div>
             </div>
 
-            <div class="brush_wrapper">
+            <div class="brush_wrapper" id="brush2" onclick="selectBrush(2)">
                 <div class="brush" style="height: 2px"></div>
             </div>
 
-            <div class="brush_wrapper">
+            <div class="brush_wrapper" id="brush3" onclick="selectBrush(3)">
                 <div class="brush" style="height: 3px"></div>
             </div>
 
-            <div class="brush_wrapper">
+            <div class="brush_wrapper" id="brush4" onclick="selectBrush(4)">
                 <div class="brush" style="height: 4px"></div>
             </div>
 
-            <div class="brush_wrapper">
+            <div class="brush_wrapper" id="brush5" onclick="selectBrush(5)">
                 <div class="brush" style="height: 5px"></div>
             </div>
         </div>
@@ -97,16 +96,16 @@
         <h5 class="block-heading">Effects</h5>
         <div class="effects">
             <div>
-                <div class="effect active" title="none">
+                <div class="effect active" title="none" id="effect0" onclick="selectEffect(0)">
                     <span>X</span>
                 </div>
-                <div class="effect" title="square">
+                <div class="effect" title="square" id="effect1" onclick="selectEffect(1)">
                     <span>1</span>
                 </div>
-                <div class="effect" title="explosion">
+                <div class="effect" title="explosion" id="effect2" onclick="selectEffect(2)">
                     <span>2</span>
                 </div>
-                <div class="effect" title="spiral">
+                <div class="effect" title="spiral" id="effect3" onclick="selectEffect(3)">
                     <span>3</span>
                 </div>
             </div>
@@ -115,8 +114,8 @@
         <div class="footer-block">
             <h5 class="block-heading">Actions</h5>
             <div class="actions">
-                <input class="action-button" type="button" value="Clear" id="clear">
-                <input class="button-primary action-button" type="button" value="Save" id="save">
+                <input class="action-button" type="button" value="Clear" id="clear" onclick="clear()">
+                <input class="button-primary action-button" type="button" value="Save" onclick="save()">
             </div>
         </div>
 
