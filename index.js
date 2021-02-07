@@ -7,6 +7,7 @@ let mouseX = 0;
 let mouseY = 0;
 let scale = 1.0;
 let effectNumber;
+let image;
 
 let isDrawing = false;
 
@@ -16,6 +17,9 @@ window.onload = function () {
   context = canvas.getContext("2d");
   context.lineWidth = 1;
   boundings = canvas.getBoundingClientRect();
+
+  image = document.createElement('img');
+  image.src = "textures/" + selectedTexture;
 
   canvas.addEventListener('mousedown', function (event) {
     setMouseCoordinates(event);
@@ -29,11 +33,7 @@ window.onload = function () {
     setMouseCoordinates(event);
 
     if (isDrawing) {
-
-      const img = new Image();
-      img.src = "textures/" + selectedTexture;
-
-      context.drawImage(img, mouseX, mouseY, context.lineWidth * 15, context.lineWidth * 15);
+      context.drawImage(image, mouseX, mouseY, context.lineWidth * 15, context.lineWidth * 15);
       context.stroke();
     }
   });
@@ -69,19 +69,14 @@ function setMouseCoordinates(event) {
 
 function drawFirstEffect(x, y, w, h) {
   let rw = w * scale;
-  let rh = h * scale;
+  let rh = h * scale
 
-  const img = new Image();
-  img.src = "textures/" + selectedTexture;
-
-  context.drawImage(img, x - rw / 2, y - rh / 2, rw, rh);
+  context.drawImage(image, x - rw / 2, y - rh / 2, rw, rh);
   scale *= 1.01;
 }
 
 function drawSecondEffect(x, y, w, h) {
-  const img = new Image();
-  img.src = "textures/" + selectedTexture;
-  context.drawImage(img, x - w / 2, y - h / 2, w, h);
+  context.drawImage(image, x - w / 2, y - h / 2, w, h);
 }
 
 function drawSquare() {
@@ -130,6 +125,7 @@ function drawSpiral() {
 
 function selectTexture(value) {
   selectedTexture = `${value}.png`;
+  image.src = "textures/" + selectedTexture;
 
   const textures = document.getElementsByClassName('texture');
   for (let i = 0; i < textures.length; i++) {
